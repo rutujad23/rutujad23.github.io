@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome to Rutuja's Site 1</title>
+  <title>Welcome to Rutuja's Site </title>
 </head>
 <body>
   <h1>Hello, I'm Rutuja!</h1>
