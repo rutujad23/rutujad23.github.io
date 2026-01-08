@@ -1,9 +1,75 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Welcome to Rutuja's Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aim Trainer (Web)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Hello, I'm Rutuja!</h1>
-  <p>This is my personal website hosted on GitHub Pages.</p>
+  <header class="topbar">
+    <h1>Aim Trainer</h1>
+    <div id="lastSession" class="last-session"></div>
+  </header>
+
+  <main class="main">
+    <aside class="controls">
+      <label>Mode</label>
+      <div class="modes" id="modes">
+        <button data-mode="warmup" class="mode-btn">Warmup</button>
+        <button data-mode="timeattack" class="mode-btn active">Time Attack</button>
+        <button data-mode="reaction" class="mode-btn">Reaction</button>
+        <button data-mode="tracking" class="mode-btn">Tracking</button>
+      </div>
+
+      <div class="setting">
+        <label>Target size: <span id="labelTargetSize">48</span> px</label>
+        <input id="targetSize" type="range" min="20" max="140" value="48" />
+      </div>
+
+      <div class="setting" id="spawnSetting">
+        <label>Spawn interval: <span id="labelSpawn">900</span> ms</label>
+        <input id="spawnInterval" type="range" min="150" max="2000" value="900" />
+      </div>
+
+      <div class="setting" id="timeAttackSetting">
+        <label>Time attack: <span id="labelTime">30</span> s</label>
+        <input id="timeAttack" type="range" min="10" max="300" value="30" />
+      </div>
+
+      <div class="setting" id="trackingSetting" style="display:none">
+        <label>Tracking speed: <span id="labelSpeed">160</span> px/s</label>
+        <input id="trackingSpeed" type="range" min="40" max="400" value="160" />
+      </div>
+
+      <div class="buttons">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn" disabled>Pause</button>
+        <button id="resetBtn">Reset</button>
+        <button id="endBtn">End</button>
+      </div>
+
+      <div class="stats-panel">
+        <div>Hits: <span id="hits">0</span></div>
+        <div>Misses: <span id="misses">0</span></div>
+        <div>Accuracy: <span id="acc">0.0</span>%</div>
+        <div>Elapsed: <span id="elapsed">0</span>s</div>
+        <div id="reactionStats" style="display:none">
+          Avg reaction: <span id="avgReaction">—</span> ms
+          Best reaction: <span id="bestReaction">—</span> ms
+        </div>
+      </div>
+
+      <footer class="credits">
+        <small>Click / Tap the targets.</small>
+      </footer>
+    </aside>
+
+    <section class="arena-wrap">
+      <canvas id="arena"></canvas>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
